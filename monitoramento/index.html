@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoramento de Tráfego Urbano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Monitoramento de Tráfego Urbano</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#semaforos">Controle de Semáforos</a></li>
+                <li><a href="#monitoramento">Monitoramento em Tempo Real</a></li>
+                <li><a href="#infracoes">Gestão de Infrações</a></li>
+                <li><a href="#relatorios">Relatórios</a></li>
+                <li><a href="#configuracoes">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="card">
+                <p><strong>Veículos Monitorados:</strong> <span id="veiculosMonitorados">1.200.000</span></p>
+                <p><strong>Incidentes Hoje:</strong> <span id="incidentesHoje">120</span></p>
+                <p><strong>Acurácia de Leitura de Placas:</strong> <span id="acuraciaPlacas">96%</span></p>
+            </div>
+        </section>
+
+        <section id="semaforos">
+            <h2>Controle de Semáforos</h2>
+            <div id="semaforos-lista"></div>
+        </section>
+
+        <section id="monitoramento">
+            <h2>Monitoramento em Tempo Real</h2>
+            <div id="mapa">[Mapa Simulado]</div>
+        </section>
+
+        <section id="infracoes">
+            <h2>Gestão de Infrações</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Infração</th>
+                        <th>Data</th>
+                        <th>Localização</th>
+                    </tr>
+                </thead>
+                <tbody id="listaInfracoes"></tbody>
+            </table>
+        </section>
+
+        <section id="relatorios">
+            <h2>Relatórios</h2>
+            <button onclick="gerarRelatorio()">Gerar Relatório de Tráfego</button>
+            <div id="relatorio"></div>
+        </section>
+
+        <section id="configuracoes">
+            <h2>Configurações</h2>
+            <p>Opções de integração e alertas climáticos.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Sistema de Monitoramento de Tráfego Urbano</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de E-commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-commerce</h1>
+            <div style="flex-grow: 1; display: flex; justify-content: center;">
+                <input type="text" id="search-bar" placeholder="Buscar produtos..." oninput="filtrarProdutos()">
+                <button onclick="buscarProdutos()">Buscar</button>
+            </div>
+            <div class="cart">
+                <a href="#" id="cart-link" onclick="verCarrinho()">Carrinho (0)</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products-list">
+            <!-- Produtos serão listados aqui dinamicamente -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 E-commerce. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão para acessar o checkout -->
+<div class="checkout">
+    <button onclick="irParaCheckout()">Finalizar Compra</button>
+</div>
+
+<!-- Formulário de pagamento e finalização do pedido (exibido quando o checkout for ativado) -->
+<div id="checkout-form" style="display: none;">
+    <h2>Finalize seu Pedido</h2>
+    <form onsubmit="finalizarCompra(event)">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" required>
+
+        <label for="cartao">Número do Cartão:</label>
+        <input type="text" id="cartao" required>
+
+        <button type="submit">Confirmar Compra</button>
+    </form>
+</div>
+
+<!-- Botão para rastrear pedido -->
+<div class="tracking">
+    <button onclick="rastrearPedido()">Rastrear Pedido</button>
+</div>
+
+<!-- Exibição de status de rastreamento -->
+<div id="tracking-status" style="display: none;">
+    <h2>Status do Pedido</h2>
+    <p id="status-text">Carregando...</p>
+</div>
+
+<!-- Avaliação de produtos -->
+<div id="product-evaluation" style="display: none;">
+    <h3>Avalie o Produto</h3>
+    <label for="rating">Nota (1 a 5):</label>
+    <input type="number" id="rating" min="1" max="5">
+    <button onclick="avaliarProduto()">Enviar Avaliação</button>
+</div>
+
+<!-- Chat de Suporte -->
+<div class="chat-support">
+    <button onclick="abrirChat()">Chat de Suporte</button>
+</div>
+
+<!-- Janela de chat -->
+<div id="chat-window" style="display: none;">
+    <div id="chat-messages" style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+        <p><b>Suporte:</b> Olá, como posso ajudar?</p>
+    </div>
+    <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+    <button onclick="enviarMensagem()">Enviar</button>
+</div>
+
+
+    <script src="padrao.js"></script>
+</body>
+</html>
