@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Monitoramento de Tráfego Urbano</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Adicionando o Chart.js -->
 </head>
 <body>
     <header>
@@ -29,11 +30,19 @@
                 <p><strong>Incidentes Hoje:</strong> <span id="incidentesHoje">120</span></p>
                 <p><strong>Acurácia de Leitura de Placas:</strong> <span id="acuraciaPlacas">96%</span></p>
             </div>
+            <!-- Gráficos -->
+            <canvas id="tráfego-chart"></canvas>
+            <canvas id="infractions-chart"></canvas>
         </section>
 
         <section id="semaforos">
             <h2>Controle de Semáforos</h2>
-            <div id="semaforos-lista"></div>
+            <div id="semaforos-lista">
+                <button onclick="alterarSemaforo('semáforo-1')">Semáforo 1</button>
+                <button onclick="alterarSemaforo('semáforo-2')">Semáforo 2</button>
+                <button onclick="alterarSemaforo('semáforo-3')">Semáforo 3</button>
+                <!-- Aqui podem ser adicionados mais semáforos -->
+            </div>
         </section>
 
         <section id="monitoramento">
@@ -72,6 +81,42 @@
         <p>&copy; 2024 Sistema de Monitoramento de Tráfego Urbano</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Seu script principal -->
+    <script>
+        // Gráficos
+        var ctx1 = document.getElementById('tráfego-chart').getContext('2d');
+        var tráfegoChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                datasets: [{
+                    label: 'Tráfego de Veículos',
+                    data: [1500000, 1550000, 1520000, 1540000, 1560000, 1580000, 1550000],
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    fill: true,
+                }]
+            },
+        });
+
+        var ctx2 = document.getElementById('infractions-chart').getContext('2d');
+        var infractionsChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                datasets: [{
+                    label: 'Infrações Registradas',
+                    data: [5, 7, 3, 9, 11, 8, 6],
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                }]
+            },
+        });
+
+        // Função de controle de semáforos
+        function alterarSemaforo(semaforo) {
+            alert('Alterando semáforo: ' + semaforo);
+            // Lógica para controlar os semáforos aqui
+        }
+    </script>
 </body>
 </html>
